@@ -73,6 +73,97 @@ Client-server chat applications are versatile tools that facilitate real-time co
 
 Client-server chat applications are foundational to real-time communication over networks. They incorporate principles of socket programming, communication protocols, and security mechanisms to provide a seamless user experience. Understanding the basics of client-server chat applications is essential for developers involved in networked application development, as they form the backbone of various collaborative communication systems. As technology evolves, chat applications continue to adapt, incorporating new features and technologies to enhance user interaction and connectivity.
 
+Algorithm: 
+```
+Client-Server Chat Using Socket Programming
+
+1. Create sockets: Create TCP sockets for both the server and client.
+
+2. Establish connection: The server binds to IP address 127.0.0.1 and port 12345, listens for connections, and accepts the client connection.
+
+3. Send message: The client enters and sends a message to the server.
+
+4. Receive and reply: The server receives and displays the client's message, enters a reply, and sends it back to the client. Repeat the communication until either side enters "exit".
+
+5. Close connection: Close the client and server sockets and terminate the program.
+```
+CODE:
+
+1.serverchat.py
+```
+import socket
+
+# Create socket
+server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+host = "127.0.0.1"
+port = 12345
+
+# Bind and listen
+server.bind((host, port))
+server.listen(1)
+
+print("Server waiting for connection...")
+
+conn, addr = server.accept()
+print("Connected to:", addr)
+
+while True:
+    # Receive message from client
+    client_msg = conn.recv(1024).decode()
+    print("Client:", client_msg)
+
+    if client_msg.lower() == "exit":
+        break
+
+    # Send message to client
+    msg = input("Server: ")
+    conn.send(msg.encode())
+
+    if msg.lower() == "exit":
+        break
+
+conn.close()
+server.close()
+```
+2.Clientchat.py
+```
+import socket
+
+# Create socket
+client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+host = "127.0.0.1"
+port = 12345
+
+# Connect to server
+client.connect((host, port))
+
+while True:
+    # Send message to server
+    msg = input("Client: ")
+    client.send(msg.encode())
+
+    if msg.lower() == "exit":
+        break
+
+    # Receive reply from server
+    server_msg = client.recv(1024).decode()
+    print("Server:", server_msg)
+
+    if server_msg.lower() == "exit":
+        break
+
+client.close()
+```
+OUTPUT
+
+Serverchat: 
+      <img width="1437" height="203" alt="image" src="https://github.com/user-attachments/assets/aeb9784c-b077-4b01-88ff-e6b34cc456b4" />
+Clientchat:
+      <img width="1402" height="155" alt="image" src="https://github.com/user-attachments/assets/3b015104-c63e-4b96-8570-64cb001cbebd" />
+
+
 
 ## Result:
 
