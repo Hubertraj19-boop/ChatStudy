@@ -159,9 +159,11 @@ client.close()
 OUTPUT
 
 Serverchat: 
-      <img width="1437" height="203" alt="image" src="https://github.com/user-attachments/assets/aeb9784c-b077-4b01-88ff-e6b34cc456b4" />
+      <img width="1263" height="242" alt="image" src="https://github.com/user-attachments/assets/8cb88a7e-8c4b-4af7-967d-912728b1e9ee" />
+
 Clientchat:
-      <img width="1402" height="155" alt="image" src="https://github.com/user-attachments/assets/3b015104-c63e-4b96-8570-64cb001cbebd" />
+      <img width="1405" height="200" alt="image" src="https://github.com/user-attachments/assets/0072127f-b3bc-461f-928f-b1882bb13d56" />
+
 
 
 
